@@ -14,11 +14,7 @@ body {
     position: relative;
 }
 
-@font-face {
-    font-family: 'Open Sans';
-    src: url('https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap');
-    font-display: swap;  /* 這樣可以避免文字消失 */
-}
+
 
 h1 { font-size: 2.8rem; }
 
