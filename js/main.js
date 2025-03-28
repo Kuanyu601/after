@@ -216,6 +216,32 @@
 	DOM.gridItems.forEach(item => items.push(new Item(item)));
 
 	DOM.details = new Details();
+
+	document.addEventListener("DOMContentLoaded", function () {
+	    // 預先載入最大內容繪製圖片
+	    const lcpImages = document.querySelectorAll("img");
+	    lcpImages.forEach((img) => {
+	        const preloadLink = document.createElement("link");
+	        preloadLink.rel = "preload";
+	        preloadLink.as = "image";
+	        preloadLink.href = img.src;
+	        document.head.appendChild(preloadLink);
+	    });
+
+	    // 預先載入最大內容渲染元素
+	    const lcpElements = document.querySelectorAll(".tm-page-title, .tm-main-content");
+	    lcpElements.forEach((element) => {
+	        const observer = new IntersectionObserver((entries) => {
+	            entries.forEach((entry) => {
+	                if (entry.isIntersecting) {
+	                    element.classList.add("visible");
+	                    observer.unobserve(element);
+	                }
+	            });
+	        });
+	        observer.observe(element);
+	    });
+	});
 };
 
 

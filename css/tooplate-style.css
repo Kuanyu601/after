@@ -317,6 +317,15 @@ a:focus {
 
 p:last-child { margin-bottom: 0; }
 
+.tm-page-title.visible, .tm-main-content.visible {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.tm-page-title, .tm-main-content {
+    opacity: 0;
+}
+
 @media (min-width: 900px) {
     .container { max-width: 900px; }
 }
